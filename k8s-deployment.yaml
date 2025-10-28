@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lemici-flask-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: lemici-flask
+  template:
+    metadata:
+      labels:
+        app: lemici-flask
+    spec:
+      containers:
+        - name: lemici-flask
+          image: syednasir9/lemici-flask:1.0  
+          ports:
+            - containerPort: 5000
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lemici-flask-lb
+spec:
+  type: LoadBalancer
+  selector:
+    app: lemici-flask
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 5000
