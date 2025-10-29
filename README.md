@@ -200,5 +200,5 @@ You are asked to set up a new microservice in AWS EKS:
 
 ---
 
-## Screenshots / Logs
+## Screenshots 
 All screenshots and logs are present in the `screenshots/` folder
